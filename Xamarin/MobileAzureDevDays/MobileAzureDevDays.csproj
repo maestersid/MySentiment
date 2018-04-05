@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <Folder Include="Constants\" />
+        <Folder Include="Pages\" />
+        <Folder Include="Services\" />
+        <Folder Include="ViewModels\" />
+        <Folder Include="Controls\" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.ProjectOxford.Text" Version="1.1.7" />
+        <PackageReference Include="Xamarin.Forms" Version="2.5.0.122203" />
+    </ItemGroup>
+    <ItemGroup>
+      <Compile Remove="..\MobileAzureDevDays.Shared\Constants\ColorConstants.cs" />
+      <Compile Remove="..\MobileAzureDevDays.Shared\Constants\EmojiConstants.cs" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\HomePage_old.xaml.cs">
+            <DependentUpon>*.xaml</DependentUpon>
+        </Compile>
+        <Compile Update="Pages\HomePage.xaml.cs">
+            <DependentUpon>SentimentPage.xaml</DependentUpon>
+        </Compile>
+        <Compile Update="App.xaml.cs">
+            <DependentUpon>*.xaml</DependentUpon>
+        </Compile>
+        <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="App.cs">
+            <DependentUpon>*.xaml</DependentUpon>
+        </Compile>
+        <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\SentimentPage.xaml.cs">
+          <DependentUpon>SentimentPage.xaml</DependentUpon>
+        </Compile>
+    </ItemGroup>
+    <Import Project="..\MobileAzureDevDays.Shared\MobileAzureDevDays.Shared.projitems" Label="Shared" Condition="Exists('..\MobileAzureDevDays.Shared\MobileAzureDevDays.Shared.projitems')" />
+</Project>
