@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Menlo.ttc">
-            <string>Menlo-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -93,6 +88,39 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EC5-VC-283" userLabel="Crash Button">
+                                <rect key="frame" x="100" y="483" width="177" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Send a sample crash">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="crashButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dnt-Sp-Ahe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAi-ls-Dhd" userLabel="Custom Event Button">
+                                <rect key="frame" x="103" y="526" width="171" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Send a simple event">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="analyticsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lty-lj-lTv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCN-JV-5lA" userLabel="Custom Color Button">
+                                <rect key="frame" x="61" y="569" width="255" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Send an event with properties">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="analyticsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="clQ-jd-YaX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="bg"/>
                         <constraints>
@@ -118,7 +146,10 @@
                     <connections>
                         <outlet property="activityIndicator" destination="B6W-Of-vpy" id="iph-ro-1PP"/>
                         <outlet property="activityLabel" destination="xjn-1N-ZmO" id="5oi-bK-k87"/>
+                        <outlet property="colorButton" destination="zCN-JV-5lA" id="wJd-45-ibX"/>
+                        <outlet property="crashButton" destination="EC5-VC-283" id="dNm-eH-1gN"/>
                         <outlet property="emojiLabel" destination="cfl-Pl-Lrd" id="K9p-3r-yWu"/>
+                        <outlet property="eventButton" destination="dAi-ls-Dhd" id="7eH-2o-cgM"/>
                         <outlet property="sentimentTextContainer" destination="nDN-SM-gMZ" id="7Ur-9p-KwZ"/>
                         <outlet property="sentimentTextPlaceholder" destination="ziP-jp-eGm" id="Vw8-UA-Y81"/>
                         <outlet property="sentimentTextView" destination="FVI-2t-QGX" id="lj3-GU-BoN"/>
