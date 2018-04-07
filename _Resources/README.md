@@ -1,4 +1,4 @@
-App Center Developer Hackathon
+# App Center Developer Hackathon
 
 ## Requirements:
 1. Developer machine with native tooling
