@@ -38,11 +38,11 @@ enum Sentiment: Double {
 	
 	var emoji: String {
 		switch self {
-			case .Damn, .Lowest, .Lower, .Low:
+			case .Damn, .Lowest, .Lower:
 				return "☹️"
-			case .Neutral:
+			case .Neutral, .Low, .High:
 				return "😐"
-			case .High, .Higher, .Highest, .Whoop:
+			case .Higher, .Highest, .Whoop:
 				return "😃"
 		}
 	}
