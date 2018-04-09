@@ -1,5 +1,6 @@
 package com.xamarin.azuredevdays;
 
+import android.app.DialogFragment;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,12 +10,18 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.app.Dialog;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.Gson;
 
@@ -25,7 +32,7 @@ import okhttp3.Response;
 
 import java.io.IOException;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     SentimentClient sentimentClient;
     Gson gson = new Gson();
@@ -34,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout backgroundLayout;
     EditText sentimentText;
     Button getSentimentButton;
+    Button crashButton;
+    Button eventButton;
+    Button colorButton;
     TextView emojiView;
 
     @Override
@@ -76,10 +86,23 @@ public class MainActivity extends AppCompatActivity {
         emojiView = (TextView) findViewById(R.id.emojiView);
 
         getSentimentButton = (Button) findViewById(R.id.getSentimentButton);
-        getSentimentButton.setOnClickListener(new View.OnClickListener() {
+        getSentimentButton.setOnClickListener(this);
 
-            @Override
-            public void onClick(final View view) {
+        Button crashButton = (Button) findViewById(R.id.sendCrashButton);
+        crashButton.setOnClickListener(this);
+
+        Button eventButton = (Button) findViewById(R.id.sendEventButton);
+        eventButton.setOnClickListener(this);
+
+        Button colorButton = (Button) findViewById(R.id.sendColorButton);
+        colorButton.setOnClickListener(this);
+
+
+    }
+
+    public void onClick(final View view){
+        switch(view.getId()){
+            case R.id.getSentimentButton:
 
                 if(sentimentText.getText().toString().equals("")) {
                     Snackbar.make(view, "You must enter something!", Snackbar.LENGTH_SHORT).show();
@@ -128,11 +151,23 @@ public class MainActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }
-        });
 
+                break;
+            case R.id.sendCrashButton:
+                DialogFragment crashDialog = new CrashDialog();
+                crashDialog.show(getFragmentManager(), "crashDialog");
+                break;
 
+            case R.id.sendEventButton:
+                DialogFragment eventDialog = new EventDialog();
+                eventDialog.show(getFragmentManager(), "eventDialog");
+                break;
 
+            case R.id.sendColorButton:
+                DialogFragment colorDialog = new ColorDialog();
+                colorDialog.show(getFragmentManager(), "colorDialog");
+                break;
+        }
     }
 
 
@@ -196,6 +231,58 @@ public class MainActivity extends AppCompatActivity {
         Color.colorToHSV(color, hsv);
         hsv[2] *= 0.8f;
         return Color.HSVToColor(hsv);
+    }
+
+    public static class CrashDialog extends DialogFragment {
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setMessage("A crash report will be sent when you reopen the app.")
+                    .setPositiveButton("Crash app", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            throw new RuntimeException("crashing");
+                        }
+                    }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                }
+            });
+            return builder.create();
+        }
+    }
+
+    public static class EventDialog extends DialogFragment {
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setMessage("Event sent").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                }
+            });
+            return builder.create();
+        }
+    }
+
+    private static Map<String, String> properties = new HashMap<>();
+
+    public static class ColorDialog extends DialogFragment {
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            CharSequence[] colors = {"Yellow", "Blue", "Red"};
+            builder.setTitle("Pick a color").setItems(colors, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int index) {
+                    switch (index) {
+                        case 0:
+                            properties.put("Color", "Yellow");
+                            break;
+                        case 1:
+                            properties.put("Color", "Blue");
+                            break;
+                        case 2:
+                            properties.put("Color", "Red");
+                            break;
+                    }
+                }
+            });
+            return builder.create();
+        }
     }
 
 }

@@ -15,6 +15,9 @@ class ViewController: UIViewController, UITextViewDelegate {
 	@IBOutlet weak var sentimentTextPlaceholder: UILabel!
 	
 	@IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var crashButton: UIButton!
+    @IBOutlet weak var eventButton: UIButton!
+    @IBOutlet weak var colorButton: UIButton!
 	
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var activityLabel: UILabel!
@@ -76,6 +79,32 @@ class ViewController: UIViewController, UITextViewDelegate {
 			resetTextView()
 		}
 	}
+    
+    @IBAction func crashButtonTapped(_: UIButton) {
+        presentCrashAlert()
+    }
+    
+    // - MARK: Alert Functions
+    func presentCrashAlert() {
+        let alert = UIAlertController(title: "The app will close",
+                                      message: "A crash report will be sent when you reopen the app.",
+                                      preferredStyle: UIAlertControllerStyle.alert)
+        
+        // Cancel Button
+        alert.addAction(UIAlertAction(title: "Cancel",
+                                      style: UIAlertActionStyle.default,
+                                      handler: { _ in alert.dismiss(animated: true, completion: nil)
+        }))
+        // Crash App button
+        alert.addAction(UIAlertAction(title: "Crash app",
+                                      style: UIAlertActionStyle.destructive,
+                                      handler: { _ in alert.dismiss(animated: true, completion: nil)
+                                        // generate test crash
+                                        fatalError()
+        }))
+        
+        present(alert, animated: true, completion: nil)
+    }
 	
 	
 	func showErrorAlert(_ title:String, message:String, dismiss:String) {
@@ -88,6 +117,63 @@ class ViewController: UIViewController, UITextViewDelegate {
 		
 		present(alertController, animated: true) {}
 	}
+    
+    @IBAction func analyticsButtonTapped(_ sender: UIButton) {
+        switch sender {
+        case eventButton:
+            print("send a custom alert via Cocoapods")
+            presentCustomEventAlert()
+            
+        case colorButton:
+            print("custom color property button pressed")
+            presentColorPropertyAlert()
+            
+        default:
+            break
+        }
+    }
+ 
+    // - MARK: Alert Functions
+    
+    func presentCustomEventAlert() {
+        let alert = UIAlertController(title: "Event sent",
+                                      message: "",
+                                      preferredStyle: .alert)
+        
+        // OK Button
+        alert.addAction(UIAlertAction(title: "OK",
+                                      style: .default,
+                                      handler: { _ in alert.dismiss(animated: true, completion: nil)
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func presentColorPropertyAlert() {
+        let alert = UIAlertController(title: "Choose a color",
+                                      message: "",
+                                      preferredStyle: .alert)
+        alert.view.tintColor = UIColor.black
+        
+        // Yellow button
+        alert.addAction(UIAlertAction(title: "💛 Yellow",
+                                      style: .default,
+                                      handler: { _ in alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        // Blue button
+        alert.addAction(UIAlertAction(title: "💙 Blue",
+                                      style: .default,
+                                      handler: { _ in alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        // Red button
+        alert.addAction(UIAlertAction(title: "❤️ Red",
+                                      style: .default,
+                                      handler: { _ in alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        present(alert, animated: true, completion: nil)
+    }
 
 	
 	func setSentiment(_ sentiment:Sentiment?) {

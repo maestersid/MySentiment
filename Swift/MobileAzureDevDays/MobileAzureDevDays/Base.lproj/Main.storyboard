@@ -86,8 +86,41 @@
                                     <constraint firstItem="FVI-2t-QGX" firstAttribute="centerX" secondItem="nDN-SM-gMZ" secondAttribute="centerX" id="rPZ-wz-Yh2"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfl-Pl-Lrd">
-                                <rect key="frame" x="20" y="353.5" width="334" height="293.5"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EC5-VC-283" userLabel="Crash Button">
+                                <rect key="frame" x="100" y="524" width="177" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Send a sample crash">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="crashButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dnt-Sp-Ahe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAi-ls-Dhd" userLabel="Custom Event Button">
+                                <rect key="frame" x="103" y="567" width="171" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Send a simple event">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="analyticsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lty-lj-lTv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCN-JV-5lA" userLabel="Custom Color Button">
+                                <rect key="frame" x="61" y="610" width="255" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Send an event with properties">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="analyticsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="clQ-jd-YaX"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfl-Pl-Lrd">
+                                <rect key="frame" x="16" y="332" width="334" height="150"/>
                                 <accessibility key="accessibilityConfiguration" identifier="EmojiLabel"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="144"/>
                                 <nil key="textColor"/>
@@ -108,7 +141,7 @@
                             <constraint firstItem="B6W-Of-vpy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="30" id="c7R-Vv-ihd"/>
                             <constraint firstItem="d82-Go-lZM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cLd-lO-D5J"/>
                             <constraint firstItem="dke-hw-IWI" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ff9-zX-cCe"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cfl-Pl-Lrd" secondAttribute="bottom" constant="20" id="gkN-93-KaV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cfl-Pl-Lrd" secondAttribute="bottom" constant="220" id="gkN-93-KaV"/>
                             <constraint firstItem="d82-Go-lZM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="kow-jf-zPV"/>
                             <constraint firstItem="xjn-1N-ZmO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lAe-Z8-1BR"/>
                             <constraint firstItem="nDN-SM-gMZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="xOA-tI-dte"/>
@@ -118,7 +151,10 @@
                     <connections>
                         <outlet property="activityIndicator" destination="B6W-Of-vpy" id="iph-ro-1PP"/>
                         <outlet property="activityLabel" destination="xjn-1N-ZmO" id="5oi-bK-k87"/>
+                        <outlet property="colorButton" destination="zCN-JV-5lA" id="wJd-45-ibX"/>
+                        <outlet property="crashButton" destination="EC5-VC-283" id="dNm-eH-1gN"/>
                         <outlet property="emojiLabel" destination="cfl-Pl-Lrd" id="K9p-3r-yWu"/>
+                        <outlet property="eventButton" destination="dAi-ls-Dhd" id="7eH-2o-cgM"/>
                         <outlet property="sentimentTextContainer" destination="nDN-SM-gMZ" id="7Ur-9p-KwZ"/>
                         <outlet property="sentimentTextPlaceholder" destination="ziP-jp-eGm" id="Vw8-UA-Y81"/>
                         <outlet property="sentimentTextView" destination="FVI-2t-QGX" id="lj3-GU-BoN"/>
