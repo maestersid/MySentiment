@@ -3,7 +3,7 @@
 ## Requirements:
 1. Developer machine with native tooling
 2. (if iOS) Apple Developer Account and an iOS Device 
-3. Source Code- [aka.ms/appcenterhackday](aka.ms/appcenterhackday]) (fork this repo to your own personal one)
+3. Source Code- [aka.ms/appcenterhackday](http://aka.ms/appcenterhackday) (fork this repo to your own personal one)
 4. VS Code (For Azure Functions work)
 5. Azure Subscription
 6. Optional- Headphones for videos/focused work
