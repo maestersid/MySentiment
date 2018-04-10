@@ -2,8 +2,8 @@
 
 ## Requirements:
 1. Developer machine with native tooling
-2. (if iOS) Apple Developer Account and an iOS Device 
-3. Source Code- [aka.ms/appcenterhackday](http://aka.ms/appcenterhackday) (fork this repo to your own personal one)
+2. Source Code- [aka.ms/appcenterhackday](http://aka.ms/appcenterhackday) (fork this repo and clone to your own machine- inside the repo you will find folders for both iOS and Android apps)
+3. (if iOS) Apple Developer Account
 4. VS Code (For Azure Functions work)
 5. Azure Subscription
 6. Optional- Headphones for videos/focused work
@@ -30,7 +30,7 @@ For the next two days you’re going to put App Center to the test to see if it 
 
 **Scenario:** You have your code on your local machine, but as you collaborate with your team, you want to ensure nobody is breaking the build as they all commit their updates. You want an autonomous solution to build this all for you, without hardware to manage and configure. Additionally, you want to have these new builds verified and automatically distributed to an internal alpha test group. 
 
-**Challenge:** Connect your code to App Center, configure a continuous build whenever code is submitted that includes a launch test and automatic distribution to a beta test group. Include yourself in the beta test group. Verify everything builds and is distributed. 
+**Challenge:** Connect App Center to your GitHub repository, configure a continuous build whenever code is submitted that includes a launch test and automatic distribution to a beta test group. Include yourself in the beta test group. Verify everything builds and is distributed. 
 
 ### 1.2 Distribution Management (30 min)
 
@@ -40,10 +40,10 @@ For the next two days you’re going to put App Center to the test to see if it 
 
 Emails to invite
 1. Your own email address
-2. []
-3. []
-4. []
-5. []
+2. Dayton.register@gmail.com 
+3. Lincoln.exchanges@gmail.com 
+4. Jaina.mayberry@outlook.com 
+5. Tom.Swifty@yahoo.com 
 
 ## Challenge 2- Test
 *Est. Time to Complete: 2.5 hours*
