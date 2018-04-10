@@ -1,6 +1,5 @@
 package com.xamarin.azuredevdays.uitest;
 
-
 import android.support.test.espresso.ViewInteraction;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
@@ -9,23 +8,24 @@ import android.test.suitebuilder.annotation.LargeTest;
 
 import com.xamarin.azuredevdays.MainActivity;
 import com.xamarin.azuredevdays.R;
+import com.xamarin.testcloud.espresso.Factory;
+import com.xamarin.testcloud.espresso.ReportHelper;
 
 import org.junit.After;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.action.ViewActions.*;
-import static android.support.test.espresso.assertion.ViewAssertions.*;
-import static android.support.test.espresso.matcher.ViewMatchers.*;
+import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static android.support.test.espresso.action.ViewActions.replaceText;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withParent;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.CoreMatchers.allOf;
-
-import android.support.test.runner.AndroidJUnit4;
-import com.xamarin.testcloud.espresso.Factory;
-import com.xamarin.testcloud.espresso.ReportHelper;
-
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
