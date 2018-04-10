@@ -21,7 +21,7 @@
         android:background="@drawable/editext_drawable"
         android:lines="20"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="100dp"
         android:hint="Hello World!"
         android:padding="10dp"/>
 
@@ -37,11 +37,50 @@
         android:text="Submit"/>
 
     <TextView
-        android:paddingTop="60dp"
+        android:paddingTop="30dp"
         android:alpha="1"
         android:id="@+id/emojiView"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="120dp"/>
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button_drawable"
+        android:id="@+id/sendCrashButton"
+        android:layout_width="150dp"
+        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:text="Send a sample crash"/>
+
+    <LinearLayout
+        android:paddingTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        >
+
+        <Button
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_drawable"
+            android:id="@+id/sendEventButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:text="Send a sample event"/>
+
+        <Button
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_drawable"
+            android:id="@+id/sendColorButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:text="Send event with color property"/>
+    </LinearLayout>
 </LinearLayout>
