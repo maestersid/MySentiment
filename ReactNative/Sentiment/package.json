@@ -13,12 +13,16 @@
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
-    "test": "node node_modules/jest/bin/jest.js --watch"
+    "test": "node node_modules/jest/bin/jest.js --watch",
+    "link": "react-native link"
   },
   "jest": {
     "preset": "jest-expo"
   },
   "dependencies": {
+    "appcenter": "^1.4.0",
+    "appcenter-analytics": "^1.4.0",
+    "appcenter-crashes": "^1.4.0",
     "expo": "^21.0.2",
     "mobile-center": "^0.10.0",
     "mobile-center-analytics": "^0.10.0",
