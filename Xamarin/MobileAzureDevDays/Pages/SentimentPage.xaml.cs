@@ -2,6 +2,10 @@
 
 using MobileAzureDevDays.ViewModels;
 
+using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Analytics;
+using System;
+
 namespace MobileAzureDevDays.Pages
 {
     public partial class SentimentPage : ContentPage
@@ -32,5 +36,15 @@ namespace MobileAzureDevDays.Pages
 
         void HandleSentimentAnalyisFailed(object sender, string ErrorMessage) =>
             Device.BeginInvokeOnMainThread(async () => await DisplayAlert("Error", ErrorMessage, "OK"));
+
+        private void ExperimentClicked(object sender, System.EventArgs e)
+        {
+            Analytics.TrackEvent("New Feature Clicked");
+
+            //@TODO something amazing here
+            Crashes.GenerateTestCrash();
+
+
+        }
     }
 }

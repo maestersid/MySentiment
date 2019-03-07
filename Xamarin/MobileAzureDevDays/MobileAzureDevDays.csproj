@@ -11,6 +11,9 @@
         <Folder Include="Controls\" />
     </ItemGroup>
     <ItemGroup>
+        <PackageReference Include="Microsoft.AppCenter.Analytics" Version="1.13.2" />
+        <PackageReference Include="Microsoft.AppCenter.Crashes" Version="1.13.2" />
+        <PackageReference Include="Microsoft.AppCenter.Distribute" Version="1.13.2" />
         <PackageReference Include="Microsoft.ProjectOxford.Text" Version="1.1.7" />
         <PackageReference Include="Xamarin.Forms" Version="2.5.0.122203" />
     </ItemGroup>

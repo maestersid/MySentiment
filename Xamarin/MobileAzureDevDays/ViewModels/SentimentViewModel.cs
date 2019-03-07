@@ -12,6 +12,9 @@ using Xamarin.Forms;
 using MobileAzureDevDays.Services;
 using MobileAzureDevDays.Shared.Constants;
 
+using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Analytics;
+
 namespace MobileAzureDevDays.ViewModels
 {
     public class SentimentViewModel : INotifyPropertyChanged
@@ -56,6 +59,7 @@ namespace MobileAzureDevDays.ViewModels
 
         async Task ExecuteSubmitButtonCommand()
         {
+            Analytics.TrackEvent("Grabbing Sentiment");
             SetIsBusy(true);
 
             try
@@ -67,6 +71,7 @@ namespace MobileAzureDevDays.ViewModels
                 }
                 else
                 {
+                    Analytics.TrackEvent("Sentiment", new Dictionary<string, string> { { "Result", $"{result}" } });
                     SetBackgroundColor((float)result);
                     SetEmoji((float)result);
                 }
@@ -79,6 +84,7 @@ namespace MobileAzureDevDays.ViewModels
             catch (Exception e)
             {
                 OnSentimentAnalyisFailed(e.Message);
+                Crashes.TrackError(e);
             }
             finally
             {
