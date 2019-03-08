@@ -41,10 +41,15 @@ namespace MobileAzureDevDays.Pages
         {
             Analytics.TrackEvent("New Feature Clicked");
 
-            //@TODO something amazing here
-            Crashes.GenerateTestCrash();
-
-
+            //@TODO something amazing
+            try
+            {
+                Crashes.GenerateTestCrash();
+            }
+            catch(Exception ex)
+            {
+                Crashes.TrackError(ex);
+            }
         }
     }
 }
