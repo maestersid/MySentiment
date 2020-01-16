@@ -1,6 +1,7 @@
 name: Android_CI
 
-on: [push]
+on:
+    push: { branches: [jwhite_updates] }
 
 jobs:
   build:
