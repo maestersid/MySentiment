@@ -60,14 +60,5 @@
             HorizontalOptions= "Center" VerticalOptions= "Center"
             AutomationId="{x:Static sharedConstants:AutomationIdConstants.EmojiResultsLabel}" />
 
-        <Button
-            Text="NEW FEATURE"
-            Margin= "50,10"
-            FontSize= "Large"
-            TextColor= "Black"
-            BackgroundColor="White"
-            Clicked="ExperimentClicked"
-            />
-
     </StackLayout>
 </ContentPage>

@@ -37,19 +37,5 @@ namespace MobileAzureDevDays.Pages
         void HandleSentimentAnalyisFailed(object sender, string ErrorMessage) =>
             Device.BeginInvokeOnMainThread(async () => await DisplayAlert("Error", ErrorMessage, "OK"));
 
-        private void ExperimentClicked(object sender, System.EventArgs e)
-        {
-            Analytics.TrackEvent("New Feature Clicked");
-
-            //@TODO something amazing
-            try
-            {
-                Crashes.GenerateTestCrash();
-            }
-            catch(Exception ex)
-            {
-                Crashes.TrackError(ex);
-            }
-        }
     }
 }
