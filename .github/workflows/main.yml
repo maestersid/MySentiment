@@ -14,4 +14,12 @@ jobs:
                 cd Xamarin
                 nuget restore MobileAzureDevDays.sln
                 cd MobileAzureDevDays.Droid
-                msbuild MobileAzureDevDays.Droid.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
+                msbuild MobileAzureDevDays.Droid.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug   
+                mkdir ${{ github.workspace }}/builds       
+          - name: Upload artifact
+            uses: actions/upload-artifact@v1.0.0
+            with:
+             # Artifact name
+             name: appbuild
+             # Directory containing files to upload
+             path: mkdir ${{ github.workspace }}/builds
