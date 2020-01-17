@@ -12,6 +12,6 @@ jobs:
           - name: Android
             run: |
                 cd Xamarin
-                nuget restore
+                nuget restore MobileAzureDevDays.sln
                 cd MobileAzureDevDays.Droid
                 msbuild MobileAzureDevDays.Droid.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
