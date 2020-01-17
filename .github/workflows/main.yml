@@ -1,18 +1,17 @@
 name: Android_CI
 
 on:
-    push: { branches: [jwhite_updates] }
+    push:
+        branches: jwhite_updates
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+  Android:
+      runs-on: [ubuntu-latest]
+      steps: 
+          - uses: actions/checkout@v1
+          - name: Android
+            run: |
+                cd Xamarin
+                nuget restore
+                cd MobileAzureDevDays.Droid
+                msbuild MobileAzureDevDays.Droid.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
